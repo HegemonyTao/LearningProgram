@@ -53,7 +53,45 @@ Seq2Seq通常使用这种架构，如下图所示
 
 其中，<img src="http://latex.codecogs.com/gif.latex?d_{model}"/>是嵌入维数（ embedding dimension），<img src="http://latex.codecogs.com/gif.latex?pos_{word}"/>是序列中的位置（0到n-1），<img src="http://latex.codecogs.com/gif.latex?pos_{emb}"/>是嵌入维数中的位置（从0到<img src="http://latex.codecogs.com/gif.latex?d_{model}-1"/>）。**Transformer-XL**就使用了相对位置编码
 
-### 位置前馈网络
+### 位置前馈网络(Position-Wise Feed-Forward Networks)
 
+Position-Wise指的是前馈层类型，它对序列中每个位置使用相同的密集层。接收三维形式的输入（批量大小、序列长度和特征大小），位置前馈网络(FFN)块有两个完全连接的层，隐藏层函数通常使用ReLU，也可使用**GELU**（高斯误差线性单元）代替。FFN定义如下：
 
+![Equation-4](./Image/Review/Equation-4.jpg)
+
+完整的网络结构如下图所示：
+
+![TransformerArchitecture](./Image/Review/TransformerArchitecture.jpg)
+
+上述架构中，编码器有两个块，解码器有三个块。每层之间都有一个残余连接，然后进行层归一化。
+
+### Pre-Train和Fine-Tune架构
+
+对于那些训练数据很少的任务，对大型模型进行预训练，并将其缩减为较小的模型以用于实际应用，已经成为一种标准程序。在使用基于文本的模型时，通常会区分预训练和微调阶段。预训练阶段在一个相当大的通用语料库上进行训练，微调阶段会修改模型以适用特定的任务或数据集。常见做法如算法1所示：
+
+![Algorithm1](./Image/Review/Algorithm1.jpg)
+
+#### 预训练过程
+
+预训练包括一个用于标记器用于编码，而后在其上训练一个TB模型。文本序列被分解成更小的部分或标记，然后作为输入输入到TB NLP模型中，如**BERT**。
+
+传统的词嵌入：**Word2vec**、**GloVe**；目前常用的有：**BERT**使用WordPiece令牌、**mBERT**、**GPT2**、**RoBERTa**以及**XLM**
+
+最常用的标记化类型是：字节对编码(**BPE**)，字节级BPE(**bBPE**)，**SentencePiece**以及**WordPiece**
+
+常见的预训练模型、损失函数以及使用该训练前目标的示例
+
+![Pre-Train-1](./Image/Review/Pre-Train-1.jpg)
+
+![Pre-Train-2](./Image/Review/Pre-Train-2.jpg)
+
+#### 微调过程
+
+微调过程将目标语料库与预期的任务结合起来使用。通过改变预训练好的模型的权重来处理特定任务。
+
+## TB模型的应用
+
+根据Transformer使用模式的变化，可创建不同类别的Transformer：只包含编码器（也叫自动编码器，AE），只包含解码器（也叫自动回归器，AR）以及编码器-解码器框架(S2S)
+
+按照应用程序分类可以分为：问答(QA)、情绪分析(SA)、文档摘要(DS)、机器翻译(MT)、主题建模(TM)、文本分类(TC)、文本生成(TG)和文本汇总(TS)
 
