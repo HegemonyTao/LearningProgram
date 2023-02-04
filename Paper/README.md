@@ -29,7 +29,7 @@ Seq2Seq通常使用这种架构，如下图所示
 
 ![Equation-1](./Image/Review/Equation-1.jpg)
 
-其中，$F_{distribution}$是分布函数，常常使用logistic,sigmoid和softmax函数等。$F_{alignment}$是对齐函数，原始Transformer中使用**点积对齐**，其他常见的对齐函数如下：
+其中，<img src="http://latex.codecogs.com/gif.latex?\F_{distribution}/>是分布函数，常常使用logistic,sigmoid和softmax函数等。$F_{alignment}$是对齐函数，原始Transformer中使用**点积对齐**，其他常见的对齐函数如下：
 
 ![AlignmentFunctions](./Image/Review/AlignmentFunctions.jpg)
 
@@ -39,7 +39,7 @@ Seq2Seq通常使用这种架构，如下图所示
 
 **多头注意层**由多个注意头组成。每个注意头计算其输入V,K和Q的注意力，同时使它们进行线性转换，如下所示：
 
-![multi-head-Attention](.\Image\Review\multi-head-Attention.jpg)
+![multi-head-Attention](./Image/Review/multi-head-Attention.jpg)
 
 掩码多头注意网络参与之前的解码器状态，其中$H^0={x_1,...,x_{|x|}}$，$H^l=Transformer_l(H^{l-1}),l\in [1,L]$，自注意的输出如下所示：
 
