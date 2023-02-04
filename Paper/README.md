@@ -12,7 +12,7 @@ NLP模型根据其主要架构可分为三类：RNNs，CNNs和attention-based
 
 Seq2Seq通常使用这种架构，如下图所示
 
-![encoder-decoder](.\Image\Review\encoder-decoder.jpg)
+![encoder-decoder](./Image/Review/encoder-decoder.jpg)
 
 但这种架构存在两个问题：
 
@@ -27,15 +27,15 @@ Seq2Seq通常使用这种架构，如下图所示
 
 此机制使用解码器状态（Q:query）和编码器隐藏状态（K:keys）来计算注意力权重，在历史上表示编码器隐藏状态（V:values）在处理解码器状态的相关性。一个称为注意力（Q,K,V）的广义注意力模型使用一组键值对(K,V)和一个称为Q的查询：
 
-![Equation-1](.\Image\Review\Equation-1.jpg)
+![Equation-1](./Image/Review/Equation-1.jpg)
 
 其中，$F_{distribution}$是分布函数，常常使用logistic,sigmoid和softmax函数等。$F_{alignment}$是对齐函数，原始Transformer中使用**点积对齐**，其他常见的对齐函数如下：
 
-![AlignmentFunctions](.\Image\Review\AlignmentFunctions.jpg)
+![AlignmentFunctions](./Image/Review/AlignmentFunctions.jpg)
 
 自注意也称内注意，它将单个序列的各个位置联系起来，以创建序列的表示：
 
-![self-attention](.\Image\Review\self-attention.jpg)
+![self-attention](./Image/Review/self-attention.jpg)
 
 **多头注意层**由多个注意头组成。每个注意头计算其输入V,K和Q的注意力，同时使它们进行线性转换，如下所示：
 
@@ -43,13 +43,13 @@ Seq2Seq通常使用这种架构，如下图所示
 
 掩码多头注意网络参与之前的解码器状态，其中$H^0={x_1,...,x_{|x|}}$，$H^l=Transformer_l(H^{l-1}),l\in [1,L]$，自注意的输出如下所示：
 
-![Equation-2](.\Image\Review\Equation-2.jpg)
+![Equation-2](./Image/Review/Equation-2.jpg)
 
 ### 位置编码
 
  位置编码用于解决注意力机制忽略了关于每个单词位置的细节，可以根据每个单词在当前序列中的位置对其进行编码。并使用如下公式计算：
 
-![Equation-3](.\Image\Review\Equation-3.jpg)
+![Equation-3](./Image/Review/Equation-3.jpg)
 
 其中，$d_{model}$是嵌入维数（ embedding dimension），$pos_{word}$是序列中的位置（0到n-1），$pos_{emb}$是嵌入维数中的位置（从0到$d_{model}-1$）。**Transformer-XL**就使用了相对位置编码
 
