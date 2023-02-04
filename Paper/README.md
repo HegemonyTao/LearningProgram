@@ -29,7 +29,7 @@ Seq2Seq通常使用这种架构，如下图所示
 
 ![Equation-1](./Image/Review/Equation-1.jpg)
 
-其中，<img src="http://latex.codecogs.com/gif.latex?\F_{distribution}/>是分布函数，常常使用logistic,sigmoid和softmax函数等。$F_{alignment}$是对齐函数，原始Transformer中使用**点积对齐**，其他常见的对齐函数如下：
+其中，<img src="http://latex.codecogs.com/gif.latex? F_{distribution}"/>是分布函数，常常使用logistic,sigmoid和softmax函数等。<img src="http://latex.codecogs.com/gif.latex?F_{alignment}"/>是对齐函数，原始Transformer中使用**点积对齐**，其他常见的对齐函数如下：
 
 ![AlignmentFunctions](./Image/Review/AlignmentFunctions.jpg)
 
@@ -41,7 +41,7 @@ Seq2Seq通常使用这种架构，如下图所示
 
 ![multi-head-Attention](./Image/Review/multi-head-Attention.jpg)
 
-掩码多头注意网络参与之前的解码器状态，其中$H^0={x_1,...,x_{|x|}}$，$H^l=Transformer_l(H^{l-1}),l\in [1,L]$，自注意的输出如下所示：
+掩码多头注意网络参与之前的解码器状态，其中<img src="http://latex.codecogs.com/gif.latex?H^0={x_1,...,x_{|x|}}"/>，<img src="http://latex.codecogs.com/gif.latex?H^l=Transformer_l(H^{l-1}),l\in [1,L]"/>，自注意的输出如下所示：
 
 ![Equation-2](./Image/Review/Equation-2.jpg)
 
@@ -51,7 +51,7 @@ Seq2Seq通常使用这种架构，如下图所示
 
 ![Equation-3](./Image/Review/Equation-3.jpg)
 
-其中，$d_{model}$是嵌入维数（ embedding dimension），$pos_{word}$是序列中的位置（0到n-1），$pos_{emb}$是嵌入维数中的位置（从0到$d_{model}-1$）。**Transformer-XL**就使用了相对位置编码
+其中，<img src="http://latex.codecogs.com/gif.latex?d_{model}"/>是嵌入维数（ embedding dimension），<img src="http://latex.codecogs.com/gif.latex?pos_{word}"/>是序列中的位置（0到n-1），<img src="http://latex.codecogs.com/gif.latex?pos_{emb}"/>是嵌入维数中的位置（从0到<img src="http://latex.codecogs.com/gif.latex?d_{model}-1"/>）。**Transformer-XL**就使用了相对位置编码
 
 ### 位置前馈网络
 
