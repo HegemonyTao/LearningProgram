@@ -130,7 +130,7 @@ Sigmoid导数：
 
 ##### SGD
 
-<img src="http://latex.codecogs.com/gif.latex?W"/>
+<img src="http://latex.codecogs.com/gif.latex?W\leftarrow W"/>
 
 <img src="http://latex.codecogs.com/gif.latex?W\leftarrow W-\eta"/>
 
