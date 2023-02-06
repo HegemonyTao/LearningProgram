@@ -66,7 +66,7 @@
 
 对于偏导数，固定一个变量的值，求出另一个变量的近似导数即可。在更新时，常使用梯度下降法来做，如：
 
-<img src="http://latex.codecogs.com/gif.latex?x_0=x_0-\eta\frac{\partial f}{\partial x_0}\quad\quad"/><img src="http://latex.codecogs.com/gif.latex?x_1=x_1-\eta\frac{\partial f}{\partial x_1}"/>      
+<img src="http://latex.codecogs.com/gif.latex?x_0=x_0-\eta\frac{d f}{d x_0}\\x_1=x_1-\eta\frac{d f}{d x_1}"/>      
 
 #### 计算图计算梯度
 
@@ -76,7 +76,7 @@
 
 对于z=x+y，先z对x及y分别求导，可得如下偏导数：
 
-<img src="http://latex.codecogs.com/gif.latex?\frac{\partial z}{\partial x}=1\\ \frac{\partial z}{\partial y}=1"/>
+<img src="http://latex.codecogs.com/gif.latex?\frac{d z}{d x}=1\\ \frac{d z}{d y}=1"/>
 
 其反向传播可以通过下图表示：
 
@@ -86,7 +86,7 @@
 
 考虑z=xy，可以得到如下偏导数：
 
-<img src="http://latex.codecogs.com/gif.latex?\frac{\partial z}{\partial x}=y\\ \frac{\partial z}{\partial y}=x"/>
+<img src="http://latex.codecogs.com/gif.latex?\frac{d z}{d x}=y\\ \frac{d z}{d y}=x"/>
 
 其反向传播可以通过下图表示：
 
@@ -100,8 +100,79 @@ ReLU原函数如下：
 
 求出y关于x的导数如下：
 
-<img src="http://latex.codecogs.com/gif.latex?\frac{\partial y}{\partial x}=\begin{cases}1\quad(x>0)\\ 0\quad(x\le0)\end{cases}"/>
+<img src="http://latex.codecogs.com/gif.latex?\frac{d y}{d x}=\begin{cases}1\quad(x>0)\\ 0\quad(x\le0)\end{cases}"/>
 
 其计算图如下：
 
 ![ReLUNodeCG](./Image/ReLUNodeCG.jpg)
+
+#### Sigmoid层
+
+Sigmoid原函数：
+
+<img src="http://latex.codecogs.com/gif.latex?y=\frac{1}{1+exp(-x)}"/>
+
+Sigmoid导数：
+
+<img src="http://latex.codecogs.com/gif.latex?\frac{dy}{dx}=y(1-y)"/>
+
+其计算图如下：
+
+![SigmoidNodeCG](./Image/SigmoidNodeCG.jpg)
+
+#### Softmax-with-Loss
+
+![SoftmaxLossNodeCG](./Image/SoftmaxLossNodeCG.jpg)
+
+### 学习技巧
+
+#### 参数更新
+
+##### SGD
+
+<img src="http://latex.codecogs.com/gif.latex?W\leftarrow W-\eta\frac{dL}{dW}"/>
+
+但如果函数的形状非均向，搜索的路径就会非常低效，如下图所示：
+
+![SGDOptimization](./Image/SGDOptimization.jpg)
+
+##### Momentum
+
+<img src="http://latex.codecogs.com/gif.latex?v\leftarrow \alpha v-\eta\frac{dL}{dW}\\W\leftarrow W+v"/>
+
+![MomentumOptimization](./Image/MomentumOptimization.jpg)
+
+##### AdaGrad
+
+<img src="http://latex.codecogs.com/gif.latex?h\leftarrow h+\frac{dL}{dW}\bigodot\frac{dL}{dW}\\W\leftarrow W-\eta\frac{1}{\sqrt{h}}\frac{dL}{dW}"/>
+
+![AdaGradOptimization](./Image/AdaGradOptimization.jpg)
+
+##### Adam
+
+融合了Momentum和AdaGrad的方法
+
+![AdamOptimization](./Image/AdamOptimization.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
