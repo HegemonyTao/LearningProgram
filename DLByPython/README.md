@@ -1,5 +1,7 @@
 # 人工神经网络与卷积神经网络
 
+[TOC]
+
 # 神经网络
 
 ### 感知机
@@ -130,7 +132,7 @@ Sigmoid导数：
 
 ##### SGD
 
-<img src="http://latex.codecogs.com/gif.latex?y\leftarrow y-\eta\frac{dL}{dy}"/>
+![SGDFormula](./Image/SGDFormula.jpg)
 
 但如果函数的形状非均向，搜索的路径就会非常低效，如下图所示：
 
@@ -138,13 +140,13 @@ Sigmoid导数：
 
 ##### Momentum
 
-<img src="http://latex.codecogs.com/gif.latex?v\leftarrow \alpha v-\eta\frac{dL}{dy}\\y\leftarrow y+v"/>
+![MomentunFormula](./Image/MomentunFormula.jpg)
 
 ![MomentumOptimization](./Image/MomentumOptimization.jpg)
 
 ##### AdaGrad
 
-<img src="http://latex.codecogs.com/gif.latex?h\leftarrow h+\frac{dL}{dy}\bigodot\frac{dL}{dy}\\y\leftarrow y-\eta\frac{1}{\sqrt{h}}\frac{dL}{dy}"/>
+![AdaGradFormula](./Image/AdaGradFormula.jpg)
 
 ![AdaGradOptimization](./Image/AdaGradOptimization.jpg)
 
