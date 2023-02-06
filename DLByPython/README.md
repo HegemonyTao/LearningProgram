@@ -66,7 +66,7 @@
 
 对于偏导数，固定一个变量的值，求出另一个变量的近似导数即可。在更新时，常使用梯度下降法来做，如：
 
-<img src="http://latex.codecogs.com/gif.latex?x_0=x_0-\eta\frac{\partial f}{\partial x_0}\\ x_1=x_1-\eta\frac{\partial f}{\partial x_1}"/>
+<img src="http://latex.codecogs.com/gif.latex?x_0=x_0-\eta\frac{\partial f}{\partial x_0}\quad\quad"/><img src="http://latex.codecogs.com/gif.latex?x_1=x_1-\eta\frac{\partial f}{\partial x_1}"/>      
 
 #### 计算图计算梯度
 
