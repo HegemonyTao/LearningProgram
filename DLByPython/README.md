@@ -154,17 +154,39 @@ Sigmoid导数：
 
 ![AdamOptimization](./Image/AdamOptimization.jpg)
 
+#### 权重初值
+
+* 权重的初始值一般不要设为0，可以尝试使用均值小的正态分布
+
+* 可以尝试使用Xavier初始值等来初始化权重
+
+#### Batch Normalization
+
+为了使得各层拥有适度的广度，从而可以顺利地进行学习，一般是插入在激活函数层前面。它以进行学习时的mini-batch为单位，按mini-batch进行正规化，即进行均值为0，方差为1的正则化，如下所示：
+
+<img src="http://latex.codecogs.com/gif.latex?\mu_B\leftarrow\frac{1}{m}\sum_{i=1}^mx_i\\\sigma_B^2\leftarrow\frac{1}{m}\sum_{i=1}^m(x_i-\mu_B)^2\\\hat{x_i}\leftarrow\frac{x_i-\mu_B}{\sqrt{\sigma_B^2+\xi}}\\y_i\leftarrow\gamma\hat{x_i}+\beta"/>
+
+![BatchNormalizationNodeCG](./Image/BatchNormalizationNodeCG.jpg)
+
+#### 正则化
+
+在网络的训练过程中很容易出现过拟合。一般来说，是由于模型拥有大量参数、表现力强或者是训练数据少造成的。可使用如下方式来抑制过拟合：
+
+##### 权值衰减
+
+该方法通过在学习的过程中对大的权重进行惩罚，来抑制过拟合。具体方式就是为损失函数加上权重的平方范数（L2范数），从而抑制权重变大。
+
+##### Dropout
+
+当网络变得复杂时，就难以只使用权值衰减来解决了，此时可采用Dropout方法。如下所示：
+
+![Dropout](./Image/Dropout.jpg)
+
+## 人工神经网络的实现
 
 
 
-
-
-
-
-
-
-
-
+**三层神经网络进行手写数字体(MNIST)识别**（使用激活函数、Batch-Normalization、Dropout、误差反向传播算法，Softmax-with-Loss等）
 
 
 
