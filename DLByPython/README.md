@@ -132,21 +132,19 @@ Sigmoid导数：
 
 <img src="http://latex.codecogs.com/gif.latex?y\leftarrow y-\eta\frac{dL}{dy}"/>
 
-<img src="http://latex.codecogs.com/gif.latex?W\leftarrow W-\eta"/>
-
 但如果函数的形状非均向，搜索的路径就会非常低效，如下图所示：
 
 ![SGDOptimization](./Image/SGDOptimization.jpg)
 
 ##### Momentum
 
-<img src="http://latex.codecogs.com/gif.latex?v\leftarrow \alpha v-\eta\frac{dL}{dW}\\W\leftarrow W+v"/>
+<img src="http://latex.codecogs.com/gif.latex?v\leftarrow \alpha v-\eta\frac{dL}{dy}\\y\leftarrow y+v"/>
 
 ![MomentumOptimization](./Image/MomentumOptimization.jpg)
 
 ##### AdaGrad
 
-<img src="http://latex.codecogs.com/gif.latex?h\leftarrow h+\frac{dL}{dW}\bigodot\frac{dL}{dW}\\W\leftarrow W-\eta\frac{1}{\sqrt{h}}\frac{dL}{dW}"/>
+<img src="http://latex.codecogs.com/gif.latex?h\leftarrow h+\frac{dL}{dy}\bigodot\frac{dL}{dy}\\y\leftarrow y-\eta\frac{1}{\sqrt{h}}\frac{dL}{dy}"/>
 
 ![AdaGradOptimization](./Image/AdaGradOptimization.jpg)
 
@@ -227,3 +225,17 @@ Sigmoid导数：
 池化层是缩小高、长方向上的空间的运算。常见的池化有：Max池化、Average池化等，如下是Max池化例子：
 
 ![MaxPoolingOperation](./Image/MaxPoolingOperation.jpg)
+
+### 实现
+
+使用CNN进行手写数字体识别
+
+**具有代表性的CNN**
+
+LeNet：激活函数使用sigmoid函数，使用子采样缩小中间数据的大小
+
+![LeNet](./Image/LeNet.jpg)
+
+AlexNet：激活函数使用ReLU、使用进行局部正规化的LRN以及使用Dropout
+
+![AlexNet](./Image/AlexNet.jpg)
