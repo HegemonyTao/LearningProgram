@@ -190,13 +190,40 @@ Sigmoid导数：
 
 **三层神经网络进行手写数字体(MNIST)识别**（使用激活函数、Batch-Normalization、Dropout、误差反向传播算法，Softmax-with-Loss等）
 
+## 卷积神经网络
 
+### 整体结构
 
+![CNNFullStructure](./Image/CNNFullStructure.jpg)
 
+其中，Conv是卷积层，Pooling是池化层
 
+### 卷积层
 
+#### 卷积运算
 
+使用滤波器，在输入数据的对应位置进行乘法并求和，而后也可以加上偏置，如下图所示：
 
+![ConvOperation](./Image/ConvOperation.jpg)
 
+#### 填充
 
+在进行卷积层的处理之前，有时需要向输入数据的周围填固定的数据，这称为填充，如下图所示：
 
+![PaddingOperation](./Image/PaddingOperation.jpg)
+
+#### 步幅
+
+应用滤波器的位置间隔称为步幅，如下所示：
+
+![StrideOperation](./Image/StrideOperation.jpg)
+
+假如输入大小为(H,W)，滤波器大小为(FH,FW)，输出大小为(OH,OW)，填充为P，步幅为S。此时，输出大小可通过如下方式进行计算：
+
+<img src="http://latex.codecogs.com/gif.latex?OH=\frac{H+2P-FH}{S}+1\\OW=\frac{W+2P-FW}{S}+1"/>
+
+### 池化层
+
+池化层是缩小高、长方向上的空间的运算。常见的池化有：Max池化、Average池化等，如下是Max池化例子：
+
+![MaxPoolingOperation](./Image/MaxPoolingOperation.jpg)
