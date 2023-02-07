@@ -39,3 +39,13 @@ def XOR(x1,x2):
     s2=OR(x1,x2)
     y=ANDC(s1,s2)
     return y
+print(ANDS(1,1))#1
+print(ANDS(1,0))#0
+print(ANDC(1,1))#1
+print(ANDC(1,0))#0
+print(OR(0,1))#1
+print(OR(0,0))#0
+print(NAND(1,1))#0
+print(NAND(1,0))#1
+print(XOR(1,0))#1
+print(XOR(1,1))#0
